@@ -1,4 +1,7 @@
 defmodule Voting.Factory do
+  @moduledoc """
+  Factory for tests
+  """
   use ExMachina.Ecto, repo: Voting.Repo
 
   def admin_factory do
