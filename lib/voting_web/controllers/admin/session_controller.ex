@@ -2,11 +2,13 @@ defmodule VotingWeb.Admin.SessionController do
   use VotingWeb, :controller
 
   alias Voting.SignInAdmin
+  alias VotingWeb.Guardian
 
   def create(conn, %{"email" => email, "password" => password}) do
     case SignInAdmin.run(email, password) do
       {:ok, admin} ->
-        render(conn, "session.json", %{admin: admin})
+        {:ok, token, _} = Guardian.encode_and_sign(admin)
+        render(conn, "session.json", %{admin: admin, token: token})
 
       {:error, _} ->
         conn
