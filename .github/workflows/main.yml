@@ -32,13 +32,13 @@ jobs:
           key: ${{ runner.os }}-mix-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
           restore-keys: |
             ${{ runner.os }}-mix-
-      - run: mix do deps.get, deps.compile
       - uses: actions/cache@v1
         with:
           path: _build
           key: ${{ runner.os }}-build-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
           restore-keys: |
             ${{ runner.os }}-build-
+      - run: mix do deps.get, deps.compile
       - run: mix compile --warnings-as-errors
       - run: mix test
       - run: mix format --check-formatted
