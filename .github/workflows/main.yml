@@ -1,3 +1,4 @@
+name: actions
 on: push
 
 jobs:
