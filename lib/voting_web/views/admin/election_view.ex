@@ -1,4 +1,4 @@
-defmodule VotingWeb.ElectionView do
+defmodule VotingWeb.Admin.ElectionView do
   use VotingWeb, :view
 
   def render("election.json", %{election: election}) do

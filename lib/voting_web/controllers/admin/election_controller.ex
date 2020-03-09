@@ -1,4 +1,4 @@
-defmodule VotingWeb.ElectionController do
+defmodule VotingWeb.Admin.ElectionController do
   use VotingWeb, :controller
 
   alias Voting.CreateElection
