@@ -2,9 +2,10 @@ defmodule VotingWeb.Admin.ElectionController do
   use VotingWeb, :controller
 
   alias Voting.CreateElection
+  alias VotingWeb.Guardian.Plug, as: GuardianPlug
 
   def create(conn, params) do
-    admin = VotingWeb.Guardian.Plug.current_resource(conn)
+    admin = GuardianPlug.current_resource(conn)
     params = Map.put(params, "created_by_id", admin.id)
 
     case CreateElection.run(params) do

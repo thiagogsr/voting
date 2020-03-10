@@ -1,4 +1,8 @@
 defmodule VotingWeb.AuthErrorHandler do
+  @moduledoc """
+  Guardian error handler
+  """
+
   import Plug.Conn
 
   @behaviour Guardian.Plug.ErrorHandler
