@@ -14,7 +14,11 @@ defmodule VotingWeb.Admin.UploadControllerTest do
       expect(ExAws, :request, fn _ -> {:ok, %{status_code: 200}} end)
 
       params = %{
-        "file" => %Plug.Upload{content_type: "image/jpeg", filename: "p07sf8xm.jpg", path: "/tmp/plug-1583/multipart-1583800119-548488569423182-2"}
+        "file" => %Plug.Upload{
+          content_type: "image/jpeg",
+          filename: "p07sf8xm.jpg",
+          path: "/tmp/plug-1583/multipart-1583800119-548488569423182-2"
+        }
       }
 
       conn = post(conn, "/api/v1/uploads", params)
@@ -25,7 +29,11 @@ defmodule VotingWeb.Admin.UploadControllerTest do
       reject(&ExAws.request/1)
 
       params = %{
-        "file" => %Plug.Upload{content_type: "image/jpeg", filename: "p07sf8xm.jpg", path: "/users/local/images/large_logo.jpg"}
+        "file" => %Plug.Upload{
+          content_type: "image/jpeg",
+          filename: "p07sf8xm.jpg",
+          path: "/users/local/images/large_logo.jpg"
+        }
       }
 
       conn = post(conn, "/api/v1/uploads", params)
@@ -36,7 +44,11 @@ defmodule VotingWeb.Admin.UploadControllerTest do
       expect(ExAws, :request, fn _ -> {:error, %{status_code: 500}} end)
 
       params = %{
-        "file" => %Plug.Upload{content_type: "image/jpeg", filename: "p07sf8xm.jpg", path: "/tmp/plug-1583/multipart-1583800119-548488569423182-2"}
+        "file" => %Plug.Upload{
+          content_type: "image/jpeg",
+          filename: "p07sf8xm.jpg",
+          path: "/tmp/plug-1583/multipart-1583800119-548488569423182-2"
+        }
       }
 
       conn = post(conn, "/api/v1/uploads", params)

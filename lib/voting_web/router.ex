@@ -19,7 +19,7 @@ defmodule VotingWeb.Router do
   scope "/api/v1", VotingWeb do
     pipe_through :api_as_admin
 
-    post("/elections", Admin.ElectionController, :create)
+    resources("/elections", Admin.ElectionController, only: [:create, :update])
     post("/uploads", Admin.UploadController, :create)
   end
 end
