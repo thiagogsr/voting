@@ -34,6 +34,12 @@ config :voting, VotingWeb.AuthAccessPipeline,
   module: VotingWeb.Guardian,
   error_handler: VotingWeb.AuthErrorHandler
 
+config :ex_aws,
+  region: "us-east-2",
+  json_codec: Jason
+
+config :voting, uploads_bucket: "voting-uploads", file_module: File
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
