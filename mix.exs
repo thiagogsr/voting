@@ -44,7 +44,13 @@ defmodule Voting.MixProject do
       {:credo, "~> 1.2", only: [:dev, :test], runtime: false},
       {:bcrypt_elixir, "~> 2.0"},
       {:ex_machina, "~> 2.4", only: :test},
-      {:guardian, "~> 2.0"}
+      {:guardian, "~> 2.0"},
+      {:ex_aws, "~> 2.1"},
+      {:ex_aws_s3, "~> 2.0"},
+      {:hackney, "~> 1.9"},
+      {:sweet_xml, "~> 0.6"},
+      {:uuid, "~> 1.1"},
+      {:mimic, "~> 1.2", only: :test}
     ]
   end
 
