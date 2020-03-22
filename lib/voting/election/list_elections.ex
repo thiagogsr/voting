@@ -5,7 +5,7 @@ defmodule Voting.ListElections do
 
   import Ecto.Query, only: [from: 2]
 
-  alias Voting.{Repo, Election}
+  alias Voting.{Election, Repo}
 
   def run do
     query = from(e in Election, order_by: e.name)
