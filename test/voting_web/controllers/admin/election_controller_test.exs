@@ -9,6 +9,17 @@ defmodule VotingWeb.Admin.ElectionControllerTest do
     %{conn: conn}
   end
 
+  describe "index/2" do
+    test "returns 200 with a list of elections", %{conn: conn} do
+      insert(:election, name: "Election B")
+      insert(:election, name: "Election A")
+
+      conn = get(conn, "/api/v1/elections")
+
+      assert [%{"name" => "Election A"}, %{"name" => "Election B"}] = json_response(conn, 200)
+    end
+  end
+
   describe "create/2" do
     test "returns 201 when election is created successfully", %{conn: conn} do
       params = %{

@@ -1,8 +1,13 @@
 defmodule VotingWeb.Admin.ElectionController do
   use VotingWeb, :controller
 
-  alias Voting.{CreateElection, ElectionRepo, UpdateElection}
+  alias Voting.{CreateElection, ElectionRepo, ListElections, UpdateElection}
   alias VotingWeb.Guardian.Plug, as: GuardianPlug
+
+  def index(conn, _params) do
+    elections = ListElections.run()
+    render(conn, "index.json", %{elections: elections})
+  end
 
   def create(conn, params) do
     admin = GuardianPlug.current_resource(conn)
