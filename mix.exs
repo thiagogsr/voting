@@ -20,7 +20,7 @@ defmodule Voting.MixProject do
   def application do
     [
       mod: {Voting.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :timex]
     ]
   end
 
@@ -50,7 +50,9 @@ defmodule Voting.MixProject do
       {:hackney, "~> 1.9"},
       {:sweet_xml, "~> 0.6"},
       {:uuid, "~> 1.1"},
-      {:mimic, "~> 1.2", only: :test}
+      {:mimic, "~> 1.2", only: :test},
+      {:csv, "~> 2.3"},
+      {:timex, "~> 3.5"}
     ]
   end
 
